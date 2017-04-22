@@ -61,7 +61,7 @@ export default function(config) {
 
   log('Initializing models');
   // Instantiate a new instance of the ORM
-  var orm = new Waterline();
+  var orm = config.orm || new Waterline();
 
   var schema = glob
     .sync(path.join(config.dir, '**/*.js'))
