@@ -65,7 +65,7 @@ export default function(config) {
 
   var schema = glob
     .sync(path.join(config.dir, '**/*.js'))
-    .map(require)
+    .map(model => require(model))
     .reduce((schema, schemata) => {
       schema[schemata.identity] = schemata;
       return schema;
